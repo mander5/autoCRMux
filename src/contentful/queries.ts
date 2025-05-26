@@ -22,6 +22,7 @@ export const PROJECTS_QUERY = `
       description
       tags
       externalLink
+      slug
       image {
         url
         description
@@ -29,4 +30,20 @@ export const PROJECTS_QUERY = `
     }
   }
 }
+`;
+
+export const PROJECT_DETAIL_QUERY = `
+  query GetProjectDetail($slug: String!) {
+    projectDetailCollection(where: { slug: $slug }, limit: 1) {
+      items {
+        title
+        info
+        backgroundAndGoals
+        method
+        crucialInsights
+        researchImpact
+        myLearning
+      }
+    }
+  }
 `;

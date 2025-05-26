@@ -15,15 +15,45 @@ body {
 }
 
 .container {
-  max-width: 900px;
+  max-width: 1000px;
   margin: 0 auto;
   padding: 0 15px;
 }
 
 /* Header styles */
 header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 80px 0 40px; /* added top spacing */
   text-align: center;
-  margin-bottom: 40px;
+}
+
+@media (min-width: 768px) {
+  header {
+    flex-direction: row;
+    align-items: flex-start;
+    text-align: left;
+    gap: 40px;
+  }
+}
+
+header img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 1em;
+}
+
+@media (min-width: 768px) {
+  header img {
+    margin-bottom: 0;
+  }
+}
+
+.header-text {
+  max-width: 600px;
 }
 
 header h1 {
@@ -39,18 +69,9 @@ header h2 {
   margin-bottom: 1em;
 }
 
-header img {
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  object-fit: cover;
-  margin-bottom: 1em;
-}
-
 header p {
   font-size: 1.1rem;
-  max-width: 600px;
-  margin: 0 auto;
+  color: #444;
 }
 
 /* Projects section */

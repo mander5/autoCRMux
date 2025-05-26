@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { client } from '../contentful/client';
 import { HOMEPAGE_QUERY, PROJECTS_QUERY } from '../contentful/queries';
+import { Link } from 'react-router-dom';
 
 interface HomepageData {
   heroTitle: string;
@@ -17,6 +18,7 @@ interface Project {
   description: string;
   tags: string[];
   externalLink: string;
+  slug: string;
   image: {
     url: string;
     description: string;
@@ -61,13 +63,15 @@ export default function Home() {
   return (
     <div className='container'>
       <header>
-        <h1>{homepage.heroTitle}</h1>
-        <h2>{homepage.heroSubtitle}</h2>
         <img
           src={homepage.profileImage.url}
           alt={homepage.profileImage.description}
         />
-        <p>{homepage.aboutText}</p>
+        <div className='header-text'>
+          <h1>{homepage.heroTitle}</h1>
+          <h2>{homepage.heroSubtitle}</h2>
+          <p>{homepage.aboutText}</p>
+        </div>
       </header>
 
       <section>
@@ -75,17 +79,20 @@ export default function Home() {
         <div className='projects-grid'>
           {projects.map((project, i) => (
             <div key={i} className='project-card'>
-              <img src={project.image.url} alt={project.image.description} />
+              <Link to={`/details/${project.slug}`}>
+                <img src={project.image.url} alt={project.image.description} />
+              </Link>
+
               <h4>{project.title}</h4>
               <p>{project.description}</p>
-              <div className='project-tags'>
+              {/* <div className='project-tags'>
                 {project.tags.map((tag, idx) => (
                   <span key={idx} className='project-tag'>
                     {tag}
                   </span>
                 ))}
-              </div>
-              {project.externalLink && (
+              </div> */}
+              {/* {project.externalLink && (
                 <a
                   href={project.externalLink}
                   target='_blank'
@@ -94,7 +101,7 @@ export default function Home() {
                 >
                   View Case Study
                 </a>
-              )}
+              )} */}
             </div>
           ))}
         </div>
