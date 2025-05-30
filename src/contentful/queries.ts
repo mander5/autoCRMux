@@ -16,16 +16,13 @@ export const HOMEPAGE_QUERY = `
 
 export const PROJECTS_QUERY = `
 {
-  projectCollection(order: title_ASC) {
+  projectCollection(order: sortOrder_ASC) {
     items {
       title
-      description
-      tags
-      externalLink
       slug
+      sortOrder
       image {
         url
-        description
       }
     }
   }

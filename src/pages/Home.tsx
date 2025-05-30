@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { client } from '../contentful/client';
 import { HOMEPAGE_QUERY, PROJECTS_QUERY } from '../contentful/queries';
 import { Link } from 'react-router-dom';
+import Footer from '../components/Footer';
 
 interface HomepageData {
   heroTitle: string;
@@ -69,7 +70,7 @@ export default function Home() {
         />
         <div className='header-text'>
           <h1>{homepage.heroTitle}</h1>
-          <h2>{homepage.heroSubtitle}</h2>
+          {/* <h2>{homepage.heroSubtitle}</h2> */}
           <p>{homepage.aboutText}</p>
         </div>
       </header>
@@ -83,8 +84,8 @@ export default function Home() {
                 <img src={project.image.url} alt={project.image.description} />
               </Link>
 
-              <h4>{project.title}</h4>
-              <p>{project.description}</p>
+              {/* <h4>{project.title}</h4>
+              <p>{project.description}</p> */}
               {/* <div className='project-tags'>
                 {project.tags.map((tag, idx) => (
                   <span key={idx} className='project-tag'>
@@ -106,6 +107,7 @@ export default function Home() {
           ))}
         </div>
       </section>
+      <Footer />
     </div>
   );
 }

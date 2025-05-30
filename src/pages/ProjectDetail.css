@@ -19,9 +19,9 @@ h1 {
 }
 
 section {
-  margin-bottom: 2.5rem;
+  margin-bottom: 3.5rem; /* more space between sections */
   padding-bottom: 1rem;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1); /* softer line */
 }
 
 section:last-child {
@@ -41,6 +41,10 @@ p {
   line-height: 1.65;
   font-size: 1.1rem;
   color: #444;
+}
+
+.container1 p {
+  margin-bottom: 1.25rem; /* adds vertical space between paragraphs */
 }
 
 /* Markdown support */
@@ -85,4 +89,24 @@ ol {
 
 li {
   margin-bottom: 0.3rem; /* space between list items */
+}
+
+.container1 h3,
+.container1 h4 {
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+  font-weight: 600;
+  color: #0a74da;
+}
+
+.container1 h3 {
+  font-size: 1.4rem;
+}
+
+.container1 h4 {
+  font-size: 1.2rem;
+}
+
+.container1 section:first-of-type {
+  margin-top: 2rem;
 }
