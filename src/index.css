@@ -76,6 +76,11 @@ header p {
 }
 
 /* Projects section */
+section:last-of-type {
+  border-bottom: none;
+  padding-bottom: 0px;
+  margin-bottom: 0px;
+}
 section h3 {
   font-size: 2rem;
   margin-bottom: 1.5em;
