@@ -49,7 +49,9 @@ const ProjectDetailPage = () => {
       <BackButton />
       <div className='container1' style={{ paddingBottom: '60px' }}>
         <h1>{project.title}</h1>
-        <p>{project.info}</p>
+        <ReactMarkdown remarkPlugins={[remarkGfm]}>
+          {project.info}
+        </ReactMarkdown>
 
         <section>
           <h2>Background & Goals</h2>
