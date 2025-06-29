@@ -30,7 +30,7 @@ export const PROJECTS_QUERY = `
 `;
 
 export const PROJECT_DETAIL_QUERY = `
-  query GetProjectDetail($slug: String!) {
+  query ProjectDetail($slug: String!) {
     projectDetailCollection(where: { slug: $slug }, limit: 1) {
       items {
         title
@@ -40,6 +40,11 @@ export const PROJECT_DETAIL_QUERY = `
         crucialInsights
         researchImpact
         myLearning
+        projectImagesCollection {
+          items {
+            url
+          }
+        }
       }
     }
   }

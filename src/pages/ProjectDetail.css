@@ -112,3 +112,117 @@ li {
 .container1 section:first-of-type {
   margin-top: 2rem;
 }
+/* Individual Project Image Styling */
+.project-image-single {
+  margin: 30px 0;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  max-width: 100%;
+  cursor: pointer; /* Show it's clickable */
+}
+
+.project-image-single img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.project-image-single img:hover {
+  transform: scale(1.02);
+}
+
+/* Lightbox Overlay */
+.lightbox-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease;
+}
+
+.lightbox-content {
+  position: relative;
+  max-width: 90%;
+  max-height: 90%;
+  animation: zoomIn 0.3s ease;
+}
+
+.lightbox-content img {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  max-height: 90vh;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: -40px;
+  right: 0;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 30px;
+  cursor: pointer;
+  padding: 5px 10px;
+  border-radius: 50%;
+  transition: background-color 0.3s ease;
+}
+
+.lightbox-close:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes zoomIn {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .project-image-single {
+    margin: 20px 0;
+    border-radius: 6px;
+  }
+
+  .project-image-single img:hover {
+    transform: scale(
+      1.02
+    ); /* Keep hover effect on mobile for clickable indication */
+  }
+
+  .lightbox-content {
+    max-width: 95%;
+    max-height: 95%;
+  }
+
+  .lightbox-close {
+    top: -35px;
+    font-size: 25px;
+  }
+}
