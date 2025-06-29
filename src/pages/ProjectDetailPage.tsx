@@ -66,29 +66,34 @@ const ProjectDetailPage = () => {
       <div className='container1' style={{ paddingBottom: '60px' }}>
         <h1>{project.title}</h1>
 
-        {/* Image 1 - Under the title */}
-        {project.projectImagesCollection &&
-          project.projectImagesCollection.items[0] && (
-            <div
-              className='project-image-single'
-              onClick={() =>
-                openLightbox(project.projectImagesCollection.items[0].url)
-              }
-            >
-              <img
-                src={project.projectImagesCollection.items[0].url}
-                alt={
-                  project.projectImagesCollection.items[0].description ||
-                  project.projectImagesCollection.items[0].title ||
-                  'Project image 1'
-                }
-              />
-            </div>
-          )}
-
-        <ReactMarkdown remarkPlugins={[remarkGfm]}>
-          {project.info}
-        </ReactMarkdown>
+        <section className='section-with-image'>
+          <div className='section-content'>
+            <ReactMarkdown remarkPlugins={[remarkGfm]}>
+              {project.info}
+            </ReactMarkdown>
+          </div>
+          {/* Image 1 - After Info (standalone, not in grid) */}
+          {project.projectImagesCollection &&
+            project.projectImagesCollection.items[0] && (
+              <div className='section-image'>
+                <div
+                  className='project-image-standalone'
+                  onClick={() =>
+                    openLightbox(project.projectImagesCollection.items[0].url)
+                  }
+                >
+                  <img
+                    src={project.projectImagesCollection.items[0].url}
+                    alt={
+                      project.projectImagesCollection.items[0].description ||
+                      project.projectImagesCollection.items[0].title ||
+                      'Project image 1'
+                    }
+                  />
+                </div>
+              </div>
+            )}
+        </section>
 
         <section>
           <h2>Background & Goals</h2>
@@ -104,59 +109,65 @@ const ProjectDetailPage = () => {
           </ReactMarkdown>
         </section>
 
-        <section>
-          <h2>Crucial Insights</h2>
-          <ReactMarkdown remarkPlugins={[remarkGfm]}>
-            {project.crucialInsights}
-          </ReactMarkdown>
+        {/* Crucial Insights with Image 2 in grid layout */}
+        <section className='section-with-image'>
+          <div className='section-content'>
+            <h2>Crucial Insights</h2>
+            <ReactMarkdown remarkPlugins={[remarkGfm]}>
+              {project.crucialInsights}
+            </ReactMarkdown>
+          </div>
+          {project.projectImagesCollection &&
+            project.projectImagesCollection.items[1] && (
+              <div className='section-image'>
+                <div
+                  className='project-image-single'
+                  onClick={() =>
+                    openLightbox(project.projectImagesCollection.items[1].url)
+                  }
+                >
+                  <img
+                    src={project.projectImagesCollection.items[1].url}
+                    alt={
+                      project.projectImagesCollection.items[1].description ||
+                      project.projectImagesCollection.items[1].title ||
+                      'Project image 2'
+                    }
+                  />
+                </div>
+              </div>
+            )}
         </section>
 
-        {/* Image 2 - After Crucial Insights */}
-        {project.projectImagesCollection &&
-          project.projectImagesCollection.items[1] && (
-            <div
-              className='project-image-single'
-              onClick={() =>
-                openLightbox(project.projectImagesCollection.items[1].url)
-              }
-            >
-              <img
-                src={project.projectImagesCollection.items[1].url}
-                alt={
-                  project.projectImagesCollection.items[1].description ||
-                  project.projectImagesCollection.items[1].title ||
-                  'Project image 2'
-                }
-              />
-            </div>
-          )}
-
-        <section>
-          <h2>Research Impact</h2>
-          <ReactMarkdown remarkPlugins={[remarkGfm]}>
-            {project.researchImpact}
-          </ReactMarkdown>
+        {/* Research Impact with Image 3 in grid layout */}
+        <section className='section-with-image'>
+          <div className='section-content'>
+            <h2>Research Impact</h2>
+            <ReactMarkdown remarkPlugins={[remarkGfm]}>
+              {project.researchImpact}
+            </ReactMarkdown>
+          </div>
+          {project.projectImagesCollection &&
+            project.projectImagesCollection.items[2] && (
+              <div className='section-image'>
+                <div
+                  className='project-image-single'
+                  onClick={() =>
+                    openLightbox(project.projectImagesCollection.items[2].url)
+                  }
+                >
+                  <img
+                    src={project.projectImagesCollection.items[2].url}
+                    alt={
+                      project.projectImagesCollection.items[2].description ||
+                      project.projectImagesCollection.items[2].title ||
+                      'Project image 3'
+                    }
+                  />
+                </div>
+              </div>
+            )}
         </section>
-
-        {/* Image 3 - After Research Impact */}
-        {project.projectImagesCollection &&
-          project.projectImagesCollection.items[2] && (
-            <div
-              className='project-image-single'
-              onClick={() =>
-                openLightbox(project.projectImagesCollection.items[2].url)
-              }
-            >
-              <img
-                src={project.projectImagesCollection.items[2].url}
-                alt={
-                  project.projectImagesCollection.items[2].description ||
-                  project.projectImagesCollection.items[2].title ||
-                  'Project image 3'
-                }
-              />
-            </div>
-          )}
 
         <section>
           <h2>My Learnings</h2>

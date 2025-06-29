@@ -1,5 +1,5 @@
 .container1 {
-  max-width: 800px;
+  max-width: 1200px; /* Increased from 800px for wider desktop layout */
   margin: 40px auto 60px;
   padding: 0 20px;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
@@ -28,6 +28,25 @@ section:last-child {
   border-bottom: none;
   margin-bottom: 0;
   padding-bottom: 0;
+}
+
+/* Grid layout for sections with images */
+.section-with-image {
+  display: grid;
+  grid-template-columns: 1fr 400px; /* Text takes remaining space, image gets 400px */
+  gap: 40px;
+  align-items: center; /* Center image vertically */
+  margin-bottom: 3.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.section-content {
+  /* Container for the text content */
+}
+
+.section-image {
+  /* Container for the image */
 }
 
 h2 {
@@ -64,22 +83,6 @@ pre {
   line-height: 1.4;
 }
 
-/* Responsive tweaks */
-@media (max-width: 700px) {
-  .container {
-    margin: 20px 15px 40px;
-    padding: 0 15px;
-  }
-
-  h1 {
-    font-size: 2.2rem;
-  }
-
-  h2 {
-    font-size: 1.3rem;
-  }
-}
-
 /* Fix markdown lists */
 ul,
 ol {
@@ -112,14 +115,16 @@ li {
 .container1 section:first-of-type {
   margin-top: 2rem;
 }
+
 /* Individual Project Image Styling */
 .project-image-single {
-  margin: 30px 0;
+  margin: 0; /* Remove margin since it's now in grid */
   overflow: hidden;
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   max-width: 100%;
   cursor: pointer; /* Show it's clickable */
+  height: fit-content; /* Ensure image container doesn't stretch */
 }
 
 .project-image-single img {
@@ -130,6 +135,27 @@ li {
 }
 
 .project-image-single img:hover {
+  transform: scale(1.02);
+}
+
+/* Image that appears after info section (not in grid) */
+.project-image-standalone {
+  margin: 30px 0;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  max-width: 100%;
+  cursor: pointer;
+}
+
+.project-image-standalone img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.project-image-standalone img:hover {
   transform: scale(1.02);
 }
 
@@ -203,17 +229,48 @@ li {
   }
 }
 
-/* Responsive adjustments */
+/* Responsive tweaks */
+@media (max-width: 1024px) {
+  .container1 {
+    max-width: 900px;
+  }
+
+  .section-with-image {
+    grid-template-columns: 1fr 300px; /* Smaller image on medium screens */
+    gap: 30px;
+  }
+}
+
 @media (max-width: 768px) {
-  .project-image-single {
+  .container1 {
+    margin: 20px 15px 40px;
+    padding: 0 15px;
+    max-width: none;
+  }
+
+  h1 {
+    font-size: 2.2rem;
+  }
+
+  h2 {
+    font-size: 1.3rem;
+  }
+
+  /* Stack grid layout on mobile */
+  .section-with-image {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .project-image-single,
+  .project-image-standalone {
     margin: 20px 0;
     border-radius: 6px;
   }
 
-  .project-image-single img:hover {
-    transform: scale(
-      1.02
-    ); /* Keep hover effect on mobile for clickable indication */
+  .project-image-single img:hover,
+  .project-image-standalone img:hover {
+    transform: scale(1.02);
   }
 
   .lightbox-content {
