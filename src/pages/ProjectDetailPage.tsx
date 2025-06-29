@@ -159,7 +159,7 @@ const ProjectDetailPage = () => {
           )}
 
         <section>
-          <h2>My Learning</h2>
+          <h2>My Learnings</h2>
           <ReactMarkdown remarkPlugins={[remarkGfm]}>
             {project.myLearning}
           </ReactMarkdown>
