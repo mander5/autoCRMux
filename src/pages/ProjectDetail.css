@@ -41,6 +41,11 @@ section:last-child {
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 
+/* Grid layout with top-aligned images */
+.section-with-image-top {
+  align-items: start; /* Align image to top instead of center */
+}
+
 .section-content {
   /* Container for the text content */
 }

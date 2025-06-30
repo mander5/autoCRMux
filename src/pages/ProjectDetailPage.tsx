@@ -114,66 +114,72 @@ const ProjectDetailPage = () => {
           </ReactMarkdown>
         </section>
 
-        {/* Crucial Insights - regular section with inline image */}
-        <section>
-          <h2>Crucial Insights</h2>
-          <ReactMarkdown remarkPlugins={[remarkGfm]}>
-            {project.crucialInsights}
-          </ReactMarkdown>
-          {/* Image 2 - Inline after Crucial Insights text */}
+        {/* Crucial Insights with Image 2 in grid layout */}
+        <section className='section-with-image section-with-image-top'>
+          <div className='section-content'>
+            <h2>Crucial Insights</h2>
+            <ReactMarkdown remarkPlugins={[remarkGfm]}>
+              {project.crucialInsights}
+            </ReactMarkdown>
+          </div>
           {project.projectImagesCollection &&
             project.projectImagesCollection.items[1] && (
-              <div
-                className='project-image-standalone'
-                onClick={() =>
-                  openLightbox(project.projectImagesCollection.items[1].url)
-                }
-              >
-                <img
-                  src={project.projectImagesCollection.items[1].url}
-                  alt={
-                    project.projectImagesCollection.items[1].description ||
-                    project.projectImagesCollection.items[1].title ||
-                    'Project image 2'
+              <div className='section-image'>
+                <div
+                  className='project-image-single'
+                  onClick={() =>
+                    openLightbox(project.projectImagesCollection.items[1].url)
                   }
-                />
-                {project.projectImagesCollection.items[1].title && (
-                  <div className='image-caption'>
-                    {project.projectImagesCollection.items[1].title}
-                  </div>
-                )}
+                >
+                  <img
+                    src={project.projectImagesCollection.items[1].url}
+                    alt={
+                      project.projectImagesCollection.items[1].description ||
+                      project.projectImagesCollection.items[1].title ||
+                      'Project image 2'
+                    }
+                  />
+                  {project.projectImagesCollection.items[1].title && (
+                    <div className='image-caption'>
+                      {project.projectImagesCollection.items[1].title}
+                    </div>
+                  )}
+                </div>
               </div>
             )}
         </section>
 
-        {/* Research Impact - regular section with inline image */}
-        <section>
-          <h2>Research Impact</h2>
-          <ReactMarkdown remarkPlugins={[remarkGfm]}>
-            {project.researchImpact}
-          </ReactMarkdown>
-          {/* Image 3 - Inline after Research Impact text */}
+        {/* Research Impact with Image 3 in grid layout */}
+        <section className='section-with-image section-with-image-top'>
+          <div className='section-content'>
+            <h2>Research Impact</h2>
+            <ReactMarkdown remarkPlugins={[remarkGfm]}>
+              {project.researchImpact}
+            </ReactMarkdown>
+          </div>
           {project.projectImagesCollection &&
             project.projectImagesCollection.items[2] && (
-              <div
-                className='project-image-standalone'
-                onClick={() =>
-                  openLightbox(project.projectImagesCollection.items[2].url)
-                }
-              >
-                <img
-                  src={project.projectImagesCollection.items[2].url}
-                  alt={
-                    project.projectImagesCollection.items[2].description ||
-                    project.projectImagesCollection.items[2].title ||
-                    'Project image 3'
+              <div className='section-image'>
+                <div
+                  className='project-image-single'
+                  onClick={() =>
+                    openLightbox(project.projectImagesCollection.items[2].url)
                   }
-                />
-                {project.projectImagesCollection.items[2].title && (
-                  <div className='image-caption'>
-                    {project.projectImagesCollection.items[2].title}
-                  </div>
-                )}
+                >
+                  <img
+                    src={project.projectImagesCollection.items[2].url}
+                    alt={
+                      project.projectImagesCollection.items[2].description ||
+                      project.projectImagesCollection.items[2].title ||
+                      'Project image 3'
+                    }
+                  />
+                  {project.projectImagesCollection.items[2].title && (
+                    <div className='image-caption'>
+                      {project.projectImagesCollection.items[2].title}
+                    </div>
+                  )}
+                </div>
               </div>
             )}
         </section>
