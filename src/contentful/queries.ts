@@ -43,6 +43,8 @@ export const PROJECT_DETAIL_QUERY = `
         projectImagesCollection {
           items {
             url
+            title
+            description
           }
         }
       }

@@ -72,12 +72,12 @@ const ProjectDetailPage = () => {
               {project.info}
             </ReactMarkdown>
           </div>
-          {/* Image 1 - After Info (standalone, not in grid) */}
+          {/* Image 1 - After Info (in grid layout) */}
           {project.projectImagesCollection &&
             project.projectImagesCollection.items[0] && (
               <div className='section-image'>
                 <div
-                  className='project-image-standalone'
+                  className='project-image-single'
                   onClick={() =>
                     openLightbox(project.projectImagesCollection.items[0].url)
                   }
@@ -90,6 +90,11 @@ const ProjectDetailPage = () => {
                       'Project image 1'
                     }
                   />
+                  {project.projectImagesCollection.items[0].title && (
+                    <div className='image-caption'>
+                      {project.projectImagesCollection.items[0].title}
+                    </div>
+                  )}
                 </div>
               </div>
             )}
@@ -109,62 +114,66 @@ const ProjectDetailPage = () => {
           </ReactMarkdown>
         </section>
 
-        {/* Crucial Insights with Image 2 in grid layout */}
-        <section className='section-with-image'>
-          <div className='section-content'>
-            <h2>Crucial Insights</h2>
-            <ReactMarkdown remarkPlugins={[remarkGfm]}>
-              {project.crucialInsights}
-            </ReactMarkdown>
-          </div>
+        {/* Crucial Insights - regular section with inline image */}
+        <section>
+          <h2>Crucial Insights</h2>
+          <ReactMarkdown remarkPlugins={[remarkGfm]}>
+            {project.crucialInsights}
+          </ReactMarkdown>
+          {/* Image 2 - Inline after Crucial Insights text */}
           {project.projectImagesCollection &&
             project.projectImagesCollection.items[1] && (
-              <div className='section-image'>
-                <div
-                  className='project-image-single'
-                  onClick={() =>
-                    openLightbox(project.projectImagesCollection.items[1].url)
+              <div
+                className='project-image-standalone'
+                onClick={() =>
+                  openLightbox(project.projectImagesCollection.items[1].url)
+                }
+              >
+                <img
+                  src={project.projectImagesCollection.items[1].url}
+                  alt={
+                    project.projectImagesCollection.items[1].description ||
+                    project.projectImagesCollection.items[1].title ||
+                    'Project image 2'
                   }
-                >
-                  <img
-                    src={project.projectImagesCollection.items[1].url}
-                    alt={
-                      project.projectImagesCollection.items[1].description ||
-                      project.projectImagesCollection.items[1].title ||
-                      'Project image 2'
-                    }
-                  />
-                </div>
+                />
+                {project.projectImagesCollection.items[1].title && (
+                  <div className='image-caption'>
+                    {project.projectImagesCollection.items[1].title}
+                  </div>
+                )}
               </div>
             )}
         </section>
 
-        {/* Research Impact with Image 3 in grid layout */}
-        <section className='section-with-image'>
-          <div className='section-content'>
-            <h2>Research Impact</h2>
-            <ReactMarkdown remarkPlugins={[remarkGfm]}>
-              {project.researchImpact}
-            </ReactMarkdown>
-          </div>
+        {/* Research Impact - regular section with inline image */}
+        <section>
+          <h2>Research Impact</h2>
+          <ReactMarkdown remarkPlugins={[remarkGfm]}>
+            {project.researchImpact}
+          </ReactMarkdown>
+          {/* Image 3 - Inline after Research Impact text */}
           {project.projectImagesCollection &&
             project.projectImagesCollection.items[2] && (
-              <div className='section-image'>
-                <div
-                  className='project-image-single'
-                  onClick={() =>
-                    openLightbox(project.projectImagesCollection.items[2].url)
+              <div
+                className='project-image-standalone'
+                onClick={() =>
+                  openLightbox(project.projectImagesCollection.items[2].url)
+                }
+              >
+                <img
+                  src={project.projectImagesCollection.items[2].url}
+                  alt={
+                    project.projectImagesCollection.items[2].description ||
+                    project.projectImagesCollection.items[2].title ||
+                    'Project image 3'
                   }
-                >
-                  <img
-                    src={project.projectImagesCollection.items[2].url}
-                    alt={
-                      project.projectImagesCollection.items[2].description ||
-                      project.projectImagesCollection.items[2].title ||
-                      'Project image 3'
-                    }
-                  />
-                </div>
+                />
+                {project.projectImagesCollection.items[2].title && (
+                  <div className='image-caption'>
+                    {project.projectImagesCollection.items[2].title}
+                  </div>
+                )}
               </div>
             )}
         </section>
