@@ -66,13 +66,20 @@ const ProjectDetailPage = () => {
       <div className='container1' style={{ paddingBottom: '60px' }}>
         <h1>{project.title}</h1>
 
-        <section className='section-with-image'>
+        <section>
+          <ReactMarkdown remarkPlugins={[remarkGfm]}>
+            {project.info}
+          </ReactMarkdown>
+        </section>
+
+        {/* Background & Goals with Image 1 in grid layout */}
+        <section className='section-with-image section-with-image-top'>
           <div className='section-content'>
+            <h2>Background & Goals</h2>
             <ReactMarkdown remarkPlugins={[remarkGfm]}>
-              {project.info}
+              {project.backgroundAndGoals}
             </ReactMarkdown>
           </div>
-          {/* Image 1 - After Info (in grid layout) */}
           {project.projectImagesCollection &&
             project.projectImagesCollection.items[0] && (
               <div className='section-image'>
@@ -98,13 +105,6 @@ const ProjectDetailPage = () => {
                 </div>
               </div>
             )}
-        </section>
-
-        <section>
-          <h2>Background & Goals</h2>
-          <ReactMarkdown remarkPlugins={[remarkGfm]}>
-            {project.backgroundAndGoals}
-          </ReactMarkdown>
         </section>
 
         <section>
